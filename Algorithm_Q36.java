@@ -1,6 +1,13 @@
 import java.util.*;
 
 public class Algorithm_Q36 {
+    /*
+     * 해당 문제는 지난번에 풀이했던 pathsum을 응용하면 쉽게 해결할 수 있는 문제이다.
+     * 문제 링크는 아래와 같다.
+     * https://leetcode.com/problems/path-sum-ii/
+     * 풀이를 확인해보자.
+     */  
+
     /**
      * Definition for a binary tree node.
      * public class TreeNode {
