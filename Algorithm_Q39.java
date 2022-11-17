@@ -67,23 +67,23 @@ public class Algorithm_Q39 {
                 // 위 반복문을 통해 확인해 보았을 때, isCatched가 false가 된다면, 현재 i, j 위치에서
                 // 문제 조건을 만족하기 때문에, 이때의 j를 y_position으로 잡는다.
                 // 그리고 퀸 말을 두고 재귀로 다음으로 넘어간다.
+                for(int pos = 0; pos < n; pos++) {
+                    line += ".";
+                }
                 if(!isCatched) {
                     y_position = j;
-                    for(int pos = 0; pos < n; pos++) {
-                        if(pos == y_position) {
-                            line += "Q";
-                        } else {
-                            line += ".";
-                        }
-                    }
-                    list.add(line);
+                    char[] arr = line.toCharArray();
+                    arr[y_position] = 'Q';
+                    list.add(String.valueOf(arr));
                     findNQueenBoard(n, piece + 1, lineNumber + 1, answer, list);
                     list.remove(list.size() - 1);
                 } else {
                     // 만약 잡히는 위치에 있다면, continue 해서 다음 위치로 이동한다.
                     // 일단 안 잡히는 케이스에도 line은 하나 지나갔다 치고, 진행한다.
                     // 이때는 말을 놓지 않았다는 점을 체크하여 진행한다.
+                    list.add(line);
                     findNQueenBoard(n, piece, lineNumber + 1, answer, list);
+                    list.remove(list.size() - 1);
                 }
             }
         }
