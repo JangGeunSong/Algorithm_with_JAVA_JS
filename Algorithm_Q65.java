@@ -1,7 +1,13 @@
 import java.util.*;
 
 public class Algorithm_Q65 {
-
+    /*
+     * 해당 문제는 그래프를 활용한 문제이다. DP와 합쳐진 문제로 내용을 잘 확인해 보자
+     * 문제 링크는 아래와 같다.
+     * https://leetcode.com/problems/sum-of-distances-in-tree/
+     * 풀이를 확인해보자.
+     */
+    
     // 나의 풀이 -> 계산량이 많아 시간 초과가 남
     public int[] sumOfDistancesInTree(int n, int[][] edges) {
         Map<Integer, List<Integer>> graph = new HashMap<>();
