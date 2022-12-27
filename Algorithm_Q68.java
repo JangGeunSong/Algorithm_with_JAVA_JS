@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class Algorithm_Q68 {
     /*
      * 해당 문제는 구현만 하면 되는 문제이다. 적절한 자료구조를 찾기위해 신경써보자.
