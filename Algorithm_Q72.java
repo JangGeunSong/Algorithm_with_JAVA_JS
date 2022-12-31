@@ -2,7 +2,7 @@ public class Algorithm_Q72 {
     /*
      * 백트래킹 문제이다. 해당 문제는 판의 크기가 작은 편으로 처리하기 쉽다.
      * 문제 링크는 아래와 같다.
-     * https://leetcode.com/problems/single-threaded-cpu/
+     * https://leetcode.com/problems/unique-paths-iii/
      * 풀이를 확인해보자.
      */
 
