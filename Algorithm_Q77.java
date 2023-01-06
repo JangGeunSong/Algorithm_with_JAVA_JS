@@ -4,7 +4,7 @@ public class Algorithm_Q77 {
     /*
      * 그리디 문제이다. 이 문제는 단순하게 정렬만 오름차순으로 하면 쉽게 풀린다.
      * 문제 링크는 아래와 같다.
-     * https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/
+     * https://leetcode.com/problems/maximum-ice-cream-bars/
      * 풀이를 확인해보자.
      */
 
