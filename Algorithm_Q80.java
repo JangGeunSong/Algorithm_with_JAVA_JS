@@ -1,11 +1,11 @@
 public class Algorithm_Q80 {
     /*
-     * 기본적인 이진트리 순회 문제이다. 반복문으로 구현하는 방식을 잘 살펴보자
+     * 기본적인 이진트리 순회 문제이다.
      * 문제 링크는 아래와 같다.
      * https://leetcode.com/problems/same-tree/
      * 풀이를 확인해보자.
      */
-    
+
     /**
      * Definition for a binary tree node.
      * public class TreeNode {
