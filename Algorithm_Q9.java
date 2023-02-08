@@ -33,4 +33,37 @@ public class Algorithm_Q9 {
 
         return answer;
     }
+
+    // 101 번째 풀이 코드는 이 문제를 다시 풀어보는 것으로 결정했다.
+    // 다시 풀었을 때에도 접근이 어느정도는 가능 했으나, DP에 매몰되어 솔루션을 찾지 못했다.
+    // 아래 풀이를 꼭 기억 하도록 하자.
+    public int jump_2(int[] nums) {
+        int n = nums.length;
+        // 정답
+        int answer = 0;
+        // 현재 위치
+        int currPoint = 0;
+        // 최대 점프 가능 거리
+        int maxJumpStep = 0;
+
+        // n - 1 까지 도달하는 거리 이므로, n - 1 이전까지만 생각한다.
+        for(int i = 0; i < n - 1; i++) {
+            
+            // 최대 점프 가능 거리는 현재 index + 점프 가능 거리 vs 현재 최대 점프 가능 거리 중 큰 값을 선택
+            maxJumpStep = Math.max(maxJumpStep, i + nums[i]);
+
+            // 현재 위치가 index 와 같다면
+            if(i == currPoint) {
+                // 현재 위치를 최대 점프 가능 거리로 갱신 즉, 1 index 에서 3을 뛰는게 최대면 4가 신규 위치다.
+                currPoint = maxJumpStep;
+                // 점프를 한번 하게 되는 것이므로 answer + 1 을한다.
+                answer += 1;
+            }
+
+        }
+
+        // 결과를 리턴
+        return answer;
+    }
+
 }
