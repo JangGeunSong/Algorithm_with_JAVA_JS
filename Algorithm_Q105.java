@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class Algorithm_Q105 {
     /*
      * 이 문제는 매우 간단한 트리 순회 문제이다. 트리의 순회 방법만 알면 곧바로 풀 수 있는 문제이므로, 개념에 집중하자.
@@ -35,7 +37,7 @@ public class Algorithm_Q105 {
         }
     }
 
-    // 풀이 코드
+    // 풀이 코드 => DFS 모델
     public int maxDepth(TreeNode root) {
         // 최종 depth를 얻을 수 있는 answer를 선언
         int[] answer = {0};
@@ -64,5 +66,44 @@ public class Algorithm_Q105 {
         goDepthOfTree(node.right, curr, answer);
 
         return;
+    }
+
+    // 풀이 코드 => BFS 모델
+    public int maxDepth_BFS(TreeNode root) {
+        // BFS 모델 예시
+        int depth = 0;
+
+        // root 노드가 null 이면 무조건 depth는 0
+        if(root == null) {
+            return depth;
+        }
+
+        // BFS를 만들기 위해 queue를 선언
+        Queue<TreeNode> queue = new LinkedList<>();
+
+        // root 노드 넣고
+        queue.offer(root);
+
+        // queue가 모두 없어질때 까지
+        while(!queue.isEmpty()) {
+            // 현재 큐에 사이즈를 체크
+            int size = queue.size();
+            // 이 사이즈만큼의 순회를 돌 때에는 depth가 동일
+            depth += 1;
+            // 현재 큐 사이즈 만큼 for문을 돌면서 큐를 다 방문하고(인접 노드 방문 처리)
+            // 이떄 얻은 자식 노드들은 모두 큐에 새로 담는다. 다만, null인 자식 노드는 담지 않는다.
+            for(int i = 0; i < size; i++) {
+                TreeNode node = queue.poll();
+                if(node.left != null) {
+                    queue.offer(node.left);
+                }
+                if(node.right != null) {
+                    queue.offer(node.right);
+                }
+            }
+        }
+
+        // 최종 depth를 리턴
+        return depth;
     }
 }
