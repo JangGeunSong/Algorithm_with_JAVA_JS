@@ -3,7 +3,7 @@ public class Algorithm_Q117 {
      * 이 문제는 3개의 pointer를 활용한 문제다.
      * sliding window를 처리하기 위해 3개의 포인터를 통해 계산을 하는 문제로 아래 풀이에 대한 설명을 확인하여 보자.
      * 문제 링크는 아래와 같다.
-     * https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/
+     * https://leetcode.com/problems/count-subarrays-with-fixed-bounds/
      * 풀이를 확인해보자.
      */
 
