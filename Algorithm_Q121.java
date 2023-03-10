@@ -5,7 +5,7 @@ public class Algorithm_Q121 {
      * 이 문제는 연결리스트의 순회 문제다.
      * 풀이를 위해 hashmap or hashset이 필요하다.
      * 문제 링크는 아래와 같다.
-     * https://leetcode.com/problems/koko-eating-bananas/
+     * https://leetcode.com/problems/linked-list-cycle-ii/
      * 풀이를 확인해보자.
      */
     
