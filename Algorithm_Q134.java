@@ -7,7 +7,7 @@ public class Algorithm_Q134 {
      * https://leetcode.com/problems/scramble-string/solutions/3357439/easy-solutions-in-java-python-and-c-look-at-once-with-exaplanation/
      * 위 링크를 참고 하자.
      * 문제 링크는 아래와 같다.
-     * https://leetcode.com/problems/reducing-dishes/
+     * https://leetcode.com/problems/scramble-string/
      * 풀이를 확인해보자.
      */
 
