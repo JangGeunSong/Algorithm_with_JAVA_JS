@@ -5,7 +5,7 @@ public class Algorithm_Q143 {
      * 이 문제는 stack을 활용한 문제다.
      * 정상적인 stack의 연산 과정과 순서가 같은지 물어보는 문제로 이에 대한 처리 방법에 대해 고민하며 풀이를 진행해야 한다.
      * 문제 링크는 아래와 같다.
-     * https://leetcode.com/problems/simplify-path/
+     * https://leetcode.com/problems/validate-stack-sequences/
      * 풀이를 확인해보자.
      */
 
