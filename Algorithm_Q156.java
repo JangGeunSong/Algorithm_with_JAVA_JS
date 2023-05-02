@@ -24,5 +24,24 @@ public class Algorithm_Q156 {
         }
 
     }
+
+    public int arraySign_use_boolean(int[] nums) {
+        // 숫자가 무한대로 커지게 될 때
+        boolean ans = true;
+
+        for(int num : nums) {
+            if(num == 0) {
+                return 0;
+            }
+
+            // 만약 음수가 한번 나오면 false로 처리하기 위해 ans의 ! 를 처리한다.
+            // 또 음수가 나오면 다시 ! 처리하면서 양수로 인식되는 true가 된다.
+            if(num < 0) {
+                ans = !ans;
+            }
+        }
+
+        return ans ? 1 : -1;
+    }
     
 }
