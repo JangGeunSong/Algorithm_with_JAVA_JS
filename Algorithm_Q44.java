@@ -129,4 +129,37 @@ public class Algorithm_Q44 {
         
         return head;
     }
+
+    // 재귀를 통한 문제 풀이를 작성했다. 2023-05-16
+    // https://leetcode.com/problems/swap-nodes-in-pairs/solutions/3528782/java-recursion-beats-100-12-lines/ 참고
+    public ListNode swapPairs_recursion(ListNode head) {
+        // 리스트를 끝까지 진행한 후 거꾸로 돌아오면서 짝수번째 데이터에서 서로를 교환하는 작업을 진행.
+        return swapPariNodes(head, 0);
+    }
+
+    public ListNode swapPariNodes(ListNode node, int cnt) {
+        // 받은 node가 null 이면 null 로 리턴
+        if (node == null) return null;
+
+        // 현재 파라미터의 cnt에서 1을 추가
+        cnt += 1;
+        // 이 함수는 현재 노드에서 next를 주면 순회가 끝나고 지금 노드의 next가 어떻게 되는지를 ret로 받아온다.
+        ListNode ret = swapPariNodes(node.next, cnt);
+
+        if (cnt % 2 == 1 && ret != null) {
+            // 현재 지나가는 노드가 홀수 번째이고, ret 노드가 null이 아니면 
+            // 현재 노드의 ret 노드는 서로 위치 교환이 일어나야 한다.
+            // 즉, node의 next가 ret의 next로 바뀌고 ret의 next가 지금의 node가 된다.
+            node.next = ret.next;
+            ret.next = node;
+        } else {
+            // 지금 노드가 짝수번째 노드라면 바로 뒤의 노드가 서로를 교환 하면서 바뀌었기 때문에
+            // 이 작업이 끝난 ret를 지금 node의 next로 바꾸고 ret를 현재 노드로 해서 리턴한다.
+            node.next = ret;
+            ret = node;
+        }
+
+        // 위에서 순회가 끝나고 받아야 하는 현재 노드의 next 값을 리턴해준다.
+        return ret;
+    }
 }
