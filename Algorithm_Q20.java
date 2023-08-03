@@ -162,4 +162,57 @@ public class Algorithm_Q20 {
             msg = msg.substring(0, msg.length() - 1);
         }
     }
+
+    // 2023-08-03 풀이 DFS 가 바로 생각나 풀었다.
+    public List<String> letterCombinations(String digits) {
+        List<String> answer = new ArrayList<>();
+        Map<String, List<String>> digitMap = new HashMap<>();
+        int cnt = 0;
+
+        for(int i = 2; i <= 9; i++) {
+            List<String> list = new ArrayList<>();
+
+            if(i == 7 || i == 9) {
+                list.add(Character.toString('a' + cnt));
+                cnt++;
+                list.add(Character.toString('a' + cnt));
+                cnt++;
+                list.add(Character.toString('a' + cnt));
+                cnt++;
+                list.add(Character.toString('a' + cnt));
+                cnt++;
+            } else {
+                list.add(Character.toString('a' + cnt));
+                cnt++;
+                list.add(Character.toString('a' + cnt));
+                cnt++;
+                list.add(Character.toString('a' + cnt));
+                cnt++;
+            }
+
+            digitMap.put(String.valueOf(i), list);
+        }
+        
+        dfs(answer, digitMap, 0, digits, "");
+        
+        return answer;
+    }
+
+    public void dfs(List<String> answer, Map<String, List<String>> digitMap, int curr, String digits, String currStr) {
+        if(curr == digits.length()) {
+            if(currStr.equals("")) {
+                return;
+            }
+            answer.add(new String(currStr));
+            return;
+        }
+
+        List<String> li = digitMap.get(String.valueOf(digits.charAt(curr)));
+
+        for(String s : li) {
+            dfs(answer, digitMap, curr + 1, digits, currStr + s);
+        }
+
+        return;
+    }
 }
