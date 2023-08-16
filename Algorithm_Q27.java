@@ -73,4 +73,43 @@ public class Algorithm_Q27 {
         // 결과를 return 한다.
         return answer;
     }
+
+    // 2023-08-16 풀이
+    // 오늘 이 문제의 완벽해 해법에 대해 이해 했다. 이전보다 더 나아진 이해도를 가지고 풀이한 아래 내용을 확인해보자.
+    public int[] maxSlidingWindow_improved(int[] nums, int k) {
+        // DEQUE를 활용해 푼다. 이 큐는 양쪽에서 빼고 더할 수 있다는 성질을 활용해서 
+        // 현재 가장 왼쪽에 값이 최대 값이 되도록 유도 하여 풀이를 진행하면 된다.
+        int answerSize = nums.length - k + 1;
+        int[] answer = new int[answerSize];
+
+        Deque<Integer> deque = new ArrayDeque<>();
+
+        for(int i = 0; i < nums.length; i++) {
+            while(deque.size() > 0 && deque.peekFirst() <= i - k) {
+                // 현재 index를 기준으로 k 만큼 차이나는 index 까지만 비교 대상으로 삼아야 한다.
+                // 그 이유는 지금 index가 window의 가장 마지막이기 때문이다.
+                // 따라서, 현재 인덱스 - k 값과 비교 해서 지금 처음에 있는 값이 작으면 사라져야 한다.
+                deque.pollFirst();
+            }
+
+            while(deque.size() > 0 && nums[deque.peekLast()] <= nums[i]) {
+                // 위에서 범위를 벗어나는 왼쪽에 큰 값들을 제외 시켰다면 (index 순서니까 그렇게 지웠다)
+                // 이제는 남아 있는 원소들 중에서 지금 index 에 있는 값보다 nums 배열 안에 값이 작으면 지워 버려야 한다.
+                // 이때는 오른쪽에 있는 값부터 지워야 하므로, 이를 이용해 현재 while문을 돈다.
+                deque.pollLast();
+            }
+
+            // 이제 불필요한 원소는 다 지워 버렸으므로, 현재 인덱스를 추가
+            deque.add(i);
+
+            if(i - k + 1 >= 0) {
+                // 현재 window 를 체크 했을 때 창의 길이보다 더 긴 상태에서 진행하고 있다면
+                // 지금 index 에서 정답은 현재 deque 에서의 왼쪽에 있는 값이다.
+                answer[i - k + 1] = nums[deque.peekFirst()];
+            }
+        }
+
+        // 답을 리턴한다.
+        return answer;
+    }
 }
